@@ -1,27 +1,28 @@
 package br.com.mintecommerce.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
-@Table(name = "produto")
-@Entity(name = "produto")
+@Table(name = "carrinho")
+@Entity(name = "carrinho")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Produto {
-
+public class Carrinho {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String nome;
-    private String descricao;
-    private Float preco;
-    private Integer quantidade;
-    private Integer quantidadeestoque;
+    private Float valorTotal;
     @ManyToOne
-    private Categoria categoria;
+    private Usuario usuario;
+    @Nullable
+    private UUID idPedido;
+    @OneToMany
+    private List<Produto> produtos;
 }

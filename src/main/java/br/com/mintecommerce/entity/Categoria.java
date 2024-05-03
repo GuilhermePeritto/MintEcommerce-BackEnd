@@ -3,7 +3,6 @@ package br.com.mintecommerce.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Table(name = "categoria")

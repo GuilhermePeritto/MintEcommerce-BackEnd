@@ -5,23 +5,18 @@ import lombok.*;
 
 import java.util.UUID;
 
-@Table(name = "produto")
-@Entity(name = "produto")
+@Table(name = "imagem")
+@Entity(name = "imagem")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Produto {
+public class Imagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String nome;
-    private String descricao;
-    private Float preco;
-    private Integer quantidade;
-    private Integer quantidadeestoque;
-    @ManyToOne
-    private Categoria categoria;
+    @Lob
+    private byte[] imagem;
 }

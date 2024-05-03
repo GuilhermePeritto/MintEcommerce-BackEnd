@@ -1,8 +1,6 @@
 package br.com.mintecommerce.service.produto;
 
-import br.com.mintecommerce.dto.request.CategoriaRequestDTO;
 import br.com.mintecommerce.dto.request.ProdutoRequestDTO;
-import br.com.mintecommerce.dto.response.CategoriaResponseDTO;
 import br.com.mintecommerce.dto.response.ProdutoResponseDTO;
 import org.springframework.http.ResponseEntity;
 

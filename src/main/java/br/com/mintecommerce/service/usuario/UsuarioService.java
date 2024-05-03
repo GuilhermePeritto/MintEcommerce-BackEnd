@@ -1,9 +1,9 @@
 package br.com.mintecommerce.service.usuario;
 
 import br.com.mintecommerce.dto.request.UsuarioRequestDTO;
+import br.com.mintecommerce.dto.response.UsuarioResponseDTO;
 import br.com.mintecommerce.entity.Usuario;
 import br.com.mintecommerce.repository.UsuarioRepository;
-import br.com.mintecommerce.dto.response.UsuarioResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
