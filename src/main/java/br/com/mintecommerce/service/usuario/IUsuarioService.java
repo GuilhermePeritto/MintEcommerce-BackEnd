@@ -20,5 +20,5 @@ public interface IUsuarioService {
 
     ResponseEntity delete(UUID id);
 
-    ResponseEntity<UsuarioResponseDTO> login(String email, String senha);
+    ResponseEntity<UsuarioResponseDTO> entrar(String email, String senha);
 }

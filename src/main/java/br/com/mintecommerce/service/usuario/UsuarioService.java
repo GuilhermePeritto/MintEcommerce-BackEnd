@@ -89,7 +89,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public ResponseEntity<UsuarioResponseDTO> login(String email, String senha) {
+    public ResponseEntity<UsuarioResponseDTO> entrar(String email, String senha) {
         try {
             UsuarioResponseDTO usuarioResponseDTO = usuarioRepository.findByEmailAndSenha(email, senha).stream().map(UsuarioResponseDTO::new).findFirst().orElse(null);
             if (usuarioResponseDTO == null) {

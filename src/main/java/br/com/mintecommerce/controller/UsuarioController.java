@@ -30,7 +30,7 @@ public class UsuarioController {
 
     @PostMapping("/entrar")
     public ResponseEntity<UsuarioResponseDTO> login(@RequestBody UsuarioRequestDTO usuarioRequestDTO) {
-        return usuarioService.login(usuarioRequestDTO.email(), usuarioRequestDTO.senha());
+        return usuarioService.entrar(usuarioRequestDTO.email(), usuarioRequestDTO.senha());
     }
 
     @PostMapping("/cadastrar")
