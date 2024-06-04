@@ -28,7 +28,7 @@ public class UsuarioController {
         return usuarioService.findById(id);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/entrar")
     public ResponseEntity<UsuarioResponseDTO> login(@RequestBody UsuarioRequestDTO usuarioRequestDTO) {
         return usuarioService.login(usuarioRequestDTO.email(), usuarioRequestDTO.senha());
     }
