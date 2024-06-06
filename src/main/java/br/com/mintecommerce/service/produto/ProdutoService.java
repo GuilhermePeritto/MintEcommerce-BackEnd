@@ -3,6 +3,7 @@ package br.com.mintecommerce.service.produto;
 import br.com.mintecommerce.dto.request.ProdutoRequestDTO;
 import br.com.mintecommerce.dto.response.ProdutoResponseDTO;
 import br.com.mintecommerce.entity.Produto;
+import br.com.mintecommerce.repository.CategoriaRepository;
 import br.com.mintecommerce.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class ProdutoService implements IProdutoService{
 
     @Autowired
     ProdutoRepository produtoRepository;
+
+    @Autowired
+    CategoriaRepository categoriaRepository;
 
     @Override
     public ResponseEntity<ProdutoResponseDTO> findById(UUID id) {
@@ -40,9 +44,9 @@ public class ProdutoService implements IProdutoService{
     }
 
     @Override
-    public ResponseEntity create(ProdutoRequestDTO categoriaRequestDTO) {
+    public ResponseEntity create(ProdutoRequestDTO produtoRequestDTO) {
         try {
-            produtoRepository.save(categoriaRequestDTO.toEntity());
+            produtoRepository.save(produtoRequestDTO.toEntity());
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -50,9 +54,9 @@ public class ProdutoService implements IProdutoService{
     }
 
     @Override
-    public ResponseEntity update(UUID id, ProdutoRequestDTO categoriaRequestDTO) {
+    public ResponseEntity update(UUID id, ProdutoRequestDTO produtoRequestDTO) {
         try {
-            Produto produto = categoriaRequestDTO.toEntity();
+            Produto produto = produtoRequestDTO.toEntity();
             produto.setId(id);
             produtoRepository.save(produto);
             return ResponseEntity.ok().build();
