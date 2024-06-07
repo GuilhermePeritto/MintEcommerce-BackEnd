@@ -1,5 +1,6 @@
 package br.com.mintecommerce.dto.response;
 
+import br.com.mintecommerce.Enum.EnumStatusProduto;
 import br.com.mintecommerce.entity.Categoria;
 import br.com.mintecommerce.entity.Produto;
 
@@ -12,9 +13,10 @@ public record ProdutoResponseDTO(
         Float preco,
         Integer quantidade,
         Integer quantidadeestoque,
-        Categoria categoria
+        Categoria categoria,
+        Integer status
 ) {
     public ProdutoResponseDTO(Produto produto){
-        this(produto.getId(),produto.getNome(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getQuantidadeestoque(), produto.getCategoria());
+        this(produto.getId(),produto.getNome(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getQuantidadeestoque(), produto.getCategoria(), produto.getStatus().getEnumValue());
     }
 }

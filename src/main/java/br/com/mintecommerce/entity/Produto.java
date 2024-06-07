@@ -1,5 +1,6 @@
 package br.com.mintecommerce.entity;
 
+import br.com.mintecommerce.Enum.EnumStatusProduto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,4 +25,5 @@ public class Produto {
     private Integer quantidadeestoque;
     @ManyToOne
     private Categoria categoria;
+    private EnumStatusProduto status;
 }

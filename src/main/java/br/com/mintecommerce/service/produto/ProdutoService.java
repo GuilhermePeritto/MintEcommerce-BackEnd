@@ -1,5 +1,6 @@
 package br.com.mintecommerce.service.produto;
 
+import br.com.mintecommerce.Enum.EnumStatusProduto;
 import br.com.mintecommerce.dto.request.ProdutoRequestDTO;
 import br.com.mintecommerce.dto.response.ProdutoResponseDTO;
 import br.com.mintecommerce.entity.Produto;
@@ -69,6 +70,36 @@ public class ProdutoService implements IProdutoService{
     public ResponseEntity delete(UUID id) {
         try {
             produtoRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @Override
+    public ResponseEntity ativar(UUID id) {
+        try {
+            Produto produto = produtoRepository.findById(id).stream().findFirst().orElse(null);
+            if (produto == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            produto.setStatus(EnumStatusProduto.Ativo);
+            produtoRepository.save(produto);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @Override
+    public ResponseEntity inativar(UUID id) {
+        try {
+            Produto produto = produtoRepository.findById(id).stream().findFirst().orElse(null);
+            if (produto == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            produto.setStatus(EnumStatusProduto.Inativo);
+            produtoRepository.save(produto);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

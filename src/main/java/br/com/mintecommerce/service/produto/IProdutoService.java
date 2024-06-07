@@ -17,4 +17,8 @@ public interface IProdutoService {
     ResponseEntity update(UUID id, ProdutoRequestDTO categoriaRequestDTO);
 
     ResponseEntity delete(UUID id);
+
+    ResponseEntity ativar(UUID id);
+
+    ResponseEntity inativar(UUID id);
 }

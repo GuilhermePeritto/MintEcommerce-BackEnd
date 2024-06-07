@@ -42,4 +42,14 @@ public class ProdutoController {
     public ResponseEntity delete(@PathVariable UUID id) {
         return produtoService.delete(id);
     }
+
+    @PutMapping("/{id}/ativar")
+    public ResponseEntity ativar(@PathVariable UUID id) {
+        return produtoService.ativar(id);
+    }
+
+    @PutMapping("/{id}/inativar")
+    public ResponseEntity inativar(@PathVariable UUID id) {
+        return produtoService.inativar(id);
+    }
 }
